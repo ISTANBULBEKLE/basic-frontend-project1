@@ -22,7 +22,16 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
     Ok(views.html.index())
   }
 
-  def string(element:String) = Action { implicit request: Request[AnyContent] =>
+  def string(element: String) = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.string(element))
+  }
+
+  def checkVehicle(vehicle: String) = Action { implicit request: Request[AnyContent] =>
+    print("Input is " + vehicle)
+    vehicle match{
+      case "car" =>  Ok(views.html.checkVehicle("this is a car"))
+      case "bike" =>  Ok(views.html.checkVehicle("this is a bike"))
+      case _ => Ok(views.html.checkVehicle("Please specify a vehicle"))
+    }
   }
 }
