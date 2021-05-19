@@ -1,0 +1,13 @@
+@import helper._
+
+@(userForm: Form[BasicForm])(implicit messages: Messages)
+
+@main("Vehicle search form") {
+<h1>Put the name of the vehicle in the form below</h1>
+
+@helper.form(action = routes.FormController.simpleFormPost) {
+@inputText(userForm("Vehicle Name"))
+
+<input type="submit" value="Submit">
+}
+}
