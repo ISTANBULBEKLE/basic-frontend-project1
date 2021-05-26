@@ -7,11 +7,8 @@ import play.api.libs.json.Json
 import play.api.libs.ws
 import play.api.libs.ws.WSClient
 import play.api.mvc.{AbstractController, AnyContent, ControllerComponents, Request}
-
 import javax.inject._
 import scala.concurrent.ExecutionContext
-
-
 
 
 @Singleton
@@ -23,7 +20,6 @@ class FormController @Inject()(ws: WSClient,
   def simpleForm() = Action {  implicit request: Request[AnyContent] =>
     Ok(views.html.form(BasicForm.form))
   }
-
 
   def simpleFormPost() = Action.async{ implicit request =>
     val postData = request.body.asFormUrlEncoded
@@ -44,9 +40,7 @@ class FormController @Inject()(ws: WSClient,
     } recover {
       case _ => NotFound
     }
-
   }
-
 }
 
 case class BasicForm(name:String)

@@ -11,6 +11,8 @@ libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
 
 libraryDependencies += ws
+
+libraryDependencies +="org.mockito" % "mockito-core" % "2.28.2" % Test
 libraryDependencies += ehcache
 
 // Adds additional packages into Twirl
